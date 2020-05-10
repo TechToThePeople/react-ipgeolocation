@@ -2,15 +2,16 @@
 
 import { useState, useEffect } from "react";
 
-const useGeoLocation = () => {
+const useGeoLocation = (options = {}) => {
   const [country, setCountry] = useState(null);
   const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const api = options.api || "https://api.country.is";
 
   useEffect(() => {
     async function fetchAPI() {
       setIsLoading(true);
-      await fetch("https://api.country.is")
+      await fetch(api)
       .then (res => {
         if (!res.ok) { throw Error(res.statusText);return null; }
         return res.json()

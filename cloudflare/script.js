@@ -9,6 +9,7 @@ addEventListener('fetch', event => {
 async function handleRequest(request) {
   const init = {
     headers: {
+      'Access-Control-Allow-Origin': '*',
       'content-type': 'application/json;charset=UTF-8',
     }
   };
