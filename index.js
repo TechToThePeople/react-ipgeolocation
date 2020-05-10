@@ -13,7 +13,7 @@ const useGeoLocation = () => {
       const res= await fetch("https://api.country.is");
 
       res.json()
-      .then(res => setCountry(res?.country))
+      .then(res => {res && res.country ? setCountry(res.country):null;})
       .catch(err => setErrors(err))
       .finally(() => setIsLoading(false));
     }
