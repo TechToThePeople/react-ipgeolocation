@@ -1,5 +1,5 @@
 {
-  "name": "react-geolocation",
+  "name": "react-ipgeolocation",
   "version": "1.0.0",
   "description": "react hook to lookup the country based on the visitor's IP address",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TechToThePeople/react-geolocation.git"
+    "url": "git+https://github.com/TechToThePeople/react-ipgeolocation.git"
   },
   "keywords": [
     "react",

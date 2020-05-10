@@ -1,8 +1,24 @@
-# REACT hook to get the country of a visitor based on the IP address
+# REACT-ipgeolocation :earth_africa:
+A react hook to get the country of a visitor from their IP address
+
+## Installation
+
+Using `npm`:
+
+```sh
+npm install --save react-geolocation
+```
+
+Using `yarn`:
+
+```sh
+yarn add react-geolocation
+```
+
 
 ## Usage
 
-```javascript
+```jsx
 import useGeoLocation from "react-geolocation";
 
 //somewhere in your app/component
