@@ -4,23 +4,25 @@ import { useState, useEffect } from "react";
 
 const useGeoLocation = () => {
   const [country, setCountry] = useState(null);
-  const [errors, setErrors] = useState(false);
+  const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchAPI() {
       setIsLoading(true);
-      const res= await fetch("https://api.country.is");
-
-      res.json()
-      .then(res => {res && res.country ? setCountry(res.country):null;})
-      .catch(err => setErrors(err))
+      await fetch("https://api.country.is")
+      .then (res => {
+        if (!res.ok) { throw Error(res.statusText);return null; }
+        return res.json()
+      })
+      .then(res => {if (res && res.country) setCountry(res.country);})
+      .catch(err => setError(err))
       .finally(() => setIsLoading(false));
     }
     fetchAPI();
   },[]);
 
-  return {country,errors,isLoading}
+  return {country,error,isLoading}
 };
 
 export default useGeoLocation;
