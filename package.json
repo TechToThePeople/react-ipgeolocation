@@ -1,0 +1,26 @@
+{
+  "name": "react-geolocation",
+  "version": "1.0.0",
+  "description": "react hook to lookup the country based on the visitor's IP address",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TechToThePeople/react-geolocation.git"
+  },
+  "keywords": [
+    "react",
+    "hooks",
+    "react-hooks",
+    "geolocation",
+    "geoip"
+  ],
+  "author": "Xavier Dutoit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TechToThePeople/react-geolocation/issues"
+  },
+  "homepage": "https://github.com/TechToThePeople/react-geolocation#readme"
+}
