@@ -11,7 +11,7 @@ const useGeoLocation = (options = {}) => {
   useEffect(() => {
     let isCancelled = false;
 
-    if (country) return;
+    if (country || country === false) return;
     async function fetchAPI() {
       setIsLoading(true);
       await fetch(api)
