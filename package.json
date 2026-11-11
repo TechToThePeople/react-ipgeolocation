@@ -1,9 +1,12 @@
 {
   "name": "react-ipgeolocation",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "react hook to lookup the country based on the visitor's IP address",
   "main": "index.js",
   "types": "index.d.ts",
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
