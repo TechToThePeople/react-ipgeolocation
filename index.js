@@ -16,17 +16,16 @@ const useGeoLocation = (options = {}) => {
     async function fetchAPI() {
       setIsLoading(true);
       await fetch(api, { signal: controller.signal })
-        .then(res => {
+        .then((res) => {
           if (!res.ok) {
             throw Error(res.statusText);
-            return null;
           }
           return res.json();
         })
-        .then(res => {
+        .then((res) => {
           if (res && res.country && !isCancelled) setCountry(res.country);
         })
-        .catch(err => {
+        .catch((err) => {
           if (!isCancelled) setError(err);
         })
         .finally(() => {
