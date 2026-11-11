@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 const useGeoLocation = (options = {}) => {
   const [country, setCountry] = useState(options.country);
   const [error, setError] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const api = options.api || "https://api.country.is";
 
   useEffect(() => {
