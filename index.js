@@ -9,12 +9,13 @@ const useGeoLocation = (options = {}) => {
   const api = options.api || "https://api.country.is";
 
   useEffect(() => {
-    let isCancelled = false;
-
     if (country || country === false) return;
+    let isCancelled = false;
+    const controller = new AbortController();
+
     async function fetchAPI() {
       setIsLoading(true);
-      await fetch(api)
+      await fetch(api, { signal: controller.signal })
         .then(res => {
           if (!res.ok) {
             throw Error(res.statusText);
@@ -25,12 +26,17 @@ const useGeoLocation = (options = {}) => {
         .then(res => {
           if (res && res.country && !isCancelled) setCountry(res.country);
         })
-        .catch(err => setError(err))
-        .finally(() => setIsLoading(false));
+        .catch(err => {
+          if (!isCancelled) setError(err);
+        })
+        .finally(() => {
+          if (!isCancelled) setIsLoading(false);
+        });
     }
     fetchAPI();
     return () => {
       isCancelled = true;
+      controller.abort();
     };
   }, []);
 
